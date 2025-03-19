@@ -1,0 +1,101 @@
+@font-face {
+  font-family: Feature;
+  src: url("./ftr.ttf")
+}
+
+body, html {
+  margin : 0;
+  padding : 0;
+  overflow: hidden;
+  background : #000000;
+  color : #ffffff;
+  font-size : 11px;
+  font-family: Feature;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.page{
+  width : calc( 100vw - 40px );
+  height : calc( 100vh - 40px );
+  max-width: 480px;
+  padding: 20px;
+  margin-top : 20px;
+  pointer-events: none;
+  opacity : 0;
+  position: absolute;
+  transition: opacity 0.3s, background 0.3s;
+}
+
+.page.neg{
+  background: #ffffff;
+  color : #000000;
+}
+
+.page.active{
+  pointer-events: auto;
+  opacity : 1;
+}
+
+.page textarea{
+  font-size : 5em;
+  line-height: 1em;
+  margin : 0;
+  background : none;
+  border : none;
+  font-family: Feature;
+  color : #ffffff;
+  width : 100%;
+}
+
+h5{
+  font-size : 2.2em;
+  position: absolute;
+  bottom : 0;
+  width: calc(100% - 40px);
+}
+h4{
+  margin : 0;
+  color : #cdcdcd;
+  font-size : 3em;
+  line-height: 1em;
+}
+
+h3{
+  margin : 0;
+  font-size : 9em;
+  line-height: 1em;
+}
+
+p{
+  font-size : 5em;
+  line-height: 1em;
+  margin : 0;
+}
+
+a.next{
+  color : #ff0000;
+  font-size : 9em;
+  text-decoration: none;
+  border-bottom : solid 1px;
+}
+
+a.next:active{
+  color : #ffffff;
+}
+
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media ( min-width: 600px ) {
+  .page{
+    top : 50%;
+    left : 50%;
+    transform: translate3d(-50%, -50%, 0 );
+    border : solid 1px #232323;
+    margin-top : 0px;
+    height : calc( 100vh - 80px );
+  }
+}
