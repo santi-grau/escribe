@@ -85,6 +85,16 @@ a.next:active{
   color : #ffffff;
 }
 
+span[contenteditable=true]{
+  border : none;
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+span[contenteditable=true]:focus, span[contenteditable=true]:focus-visible {
+  outline: none !important;
+}
+
 *{
   -webkit-tap-highlight-color: transparent;
 }

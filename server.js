@@ -7,12 +7,6 @@ fastify.register(require("@fastify/static"), { root: path.join(__dirname, "publi
 fastify.register(require("@fastify/formbody"));
 fastify.register(require("@fastify/view"), { engine: { handlebars: require("handlebars")}});
 
-// Load and parse SEO data
-const seo = require("./src/seo.json");
-if (seo.url === "glitch-default") {
-  seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
-}
-
 fastify.get("/", function (request, reply) {
   return reply.view("/src/pages/index.hbs", {});
 });
