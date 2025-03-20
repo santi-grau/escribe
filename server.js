@@ -14,25 +14,22 @@ if (seo.url === "glitch-default") {
 }
 
 fastify.get("/", function (request, reply) {
-  let params = { seo: seo };
-  return reply.view("/src/pages/index.hbs", params);
+  return reply.view("/src/pages/index.hbs", {});
 });
 
 fastify.get("/admin", function (request, reply) {
-  // params is an object we'll pass to our handlebars template
-  let params = { };
-  return reply.view("/src/pages/admin.hbs", params);
+  const data = fs.readFileSync('./public/store.json', 'utf8');
+  return reply.view("/src/pages/admin.hbs", { store : JSON.parse( data ) } );
 });
 
 fastify.post("/", function (request, reply) {
   let bdy = request.body;
   console.log('heyhey '+ bdy);
-  const data = fs.readFileSync('./store.json', 'utf8');
+  const data = fs.readFileSync('./public/store.json', 'utf8');
   let d = JSON.parse( data )
   d.push( bdy )
   console.log( d )
-  fs.writeFileSync('./store.json', JSON.stringify( d ) ); 
-  
+  fs.writeFileSync('./public/store.json', JSON.stringify( d ) );   
 });
 
 
